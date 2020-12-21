@@ -7,9 +7,11 @@
 
 <br />
 <br />
+
 ## How to use this template
 
 <br />
+
 ### STEP 1:
 
 Click ["Use this template"](https://github.com/belferink1996/MERN-template/generate) to generate a new repository.<br />
@@ -18,7 +20,8 @@ Then open your terminal and clone your repository:
 > cd ~/Desktop <br />
 > git clone https://github.com/[your-user-name]/[your-repo-name].git
 
-<br /> 
+<br />
+
 ### STEP 2:
 
 Go to your client folder (frontend), and set your workspace:
@@ -28,6 +31,7 @@ Go to your client folder (frontend), and set your workspace:
 > npm start
 
 <br />
+
 ### STEP 3:
 
 Prepare your MongoDB database,<br />
