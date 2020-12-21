@@ -5,20 +5,40 @@
 - **R** = [React.js](https://reactjs.org)
 - **N** = [Node.js](https://nodejs.org)
 
-## Initialize project:
+<br />
+<br />
+## How to use this template
 
-###### Server (Backend):
+<br />
+### STEP 1:
 
-1. Prepare your MongoDB database
-2. Terminal: `cd server`
-3. Terminal: `npm install`
-4. Set your database within `index.js`
-5. Terminal: `npm start`
-6. Start writing code...
+Click ["Use this template"](https://github.com/belferink1996/MERN-template/generate) to generate a new repository.<br />
+Then open your terminal and clone your repository:
 
-###### Client (Frontend):
+> cd ~/Desktop <br />
+> git clone https://github.com/[your-user-name]/[your-repo-name].git
 
-1. Terminal: `cd client`
-2. Terminal: `npm install`
-3. Terminal: `npm start`
-4. Start writing code...
+<br /> 
+### STEP 2:
+
+Go to your client folder (frontend), and set your workspace:
+
+> cd ~/Desktop/[your-repo-name]/client <br />
+> npm install <br />
+> npm start
+
+<br />
+### STEP 3:
+
+Prepare your MongoDB database,<br />
+then go to your server folder (backend), and set your workspace:
+
+> cd ~/Desktop/[your-repo-name]/server <br />
+> npm install <br />
+
+Set your database within `index.js`, then start server:
+
+> npm start
+
+<br />
+### STEP 4: CODE !!!
