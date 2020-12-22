@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+// import IMPORTED_ROUTES from './routes/route.js';
+// un-comment this ^ ^ ^ to use imported route(s)
+// doing this will link this following files:   index.js -> route.js -> controller.js -> model.js
 
 // initialize app
 const app = express();
@@ -23,8 +26,9 @@ mongoose.connection.on('error', (err) => console.log(`❌ MongoDB: ${err}`));
 
 // middlewares
 app.use(express.json()); // body parser
-app.use(cors()); // enables requests
+app.use(cors()); // enables http requests
 
 // routes
 app.get('/', (req, res) => res.send('Hello World - Express.js'));
 // app.use('/', IMPORTED_ROUTES);
+// un-comment this ^ ^ ^ to use imported route(s)
