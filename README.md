@@ -43,7 +43,7 @@ Would you like to add the defaults to your package.json? (Y/n)
 
 ### STEP 3:
 
-Prepare your MongoDB database,<br />
+Prepare your MongoDB database ([atlas](https://www.mongodb.com/cloud/atlas), [community](https://github.com/belferink1996/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS))),<br />
 then go to your server folder (backend), and set your workspace:
 
 > cd ~/Desktop/[your-repo-name]/server <br />
