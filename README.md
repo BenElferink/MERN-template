@@ -43,7 +43,7 @@ Would you like to add the defaults to your package.json? (Y/n)
 
 ### STEP 3:
 
-Prepare your MongoDB database ([atlas](https://www.mongodb.com/cloud/atlas), [community](https://github.com/belferink1996/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS))),<br />
+Prepare your MongoDB database ([atlas](https://www.mongodb.com/cloud/atlas), [community](<https://github.com/belferink1996/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS)>)),<br />
 then go to your server folder (backend), and set your workspace:
 
 > cd ~/Desktop/[your-repo-name]/server <br />
@@ -56,3 +56,23 @@ Set your database within `index.js`, then start server:
 <br />
 
 ### STEP 4: CODE !!!
+
+<br />
+<br />
+
+# Node dependecies & versions:
+
+###### Client:
+
+> axios: ^0.21.0 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Build the API<br />
+> react: ^17.0.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br />
+> react-dom: ^17.0.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br />
+> react-scripts: ^4.0.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Quickly launch local server
+
+###### Server:
+
+> cors: ^2.8.5 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Enable HTTP requests<br/>
+> dotenv: ^8.2.0 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Secure sensitive information<br />
+> express: ^4.17.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Server app<br />
+> mongoose: ^5.11.8 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; MongoDB database<br />
+> nodemon: ^2.0.6 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Improved server
