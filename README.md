@@ -32,6 +32,13 @@ Go to your client folder (frontend), and set your workspace:
 > npm install <br />
 > npm start
 
+```
+We're unable to detect target browsers.
+Would you like to add the defaults to your package.json? (Y/n)
+```
+
+> Y
+
 <br />
 
 ### STEP 3:
