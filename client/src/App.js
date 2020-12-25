@@ -1,4 +1,5 @@
 import React from 'react';
+import HelloWorld from './components/HelloWorld';
 import './style/style.css';
 // import * as api from './api';
 // un-comment this ^ ^ ^ to import api endpoints
@@ -13,7 +14,11 @@ function App() {
   //
   // example ^ ^ ^ using the api endpoint
 
-  return <div>Hello World - React.js</div>;
+  return (
+    <div className='App'>
+      <HelloWorld />
+    </div>
+  );
 }
 
 export default App;
