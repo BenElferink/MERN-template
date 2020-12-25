@@ -3,15 +3,16 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 // import IMPORTED_ROUTES from './routes/route.js';
-// un-comment this ^ ^ ^ to use imported route(s)
+// ^ ^ ^ un-comment this to use imported route(s)
 // doing this will link the following files:   index.js -> route.js -> controller.js -> model.js
 
 // initialize app
 const app = express();
-dotenv.config();
+dotenv.config(); // ???   --->   https://github.com/motdotla/dotenv#readme
 
 // middlewares
 app.use(express.json()); // body parser
+app.use(express.urlencoded({ extended: false })); // url parser
 app.use(cors()); // enables http requests
 
 // configure db --->            if you want to connect to cloud server: edit "CONNECTION_URL" in -> .env file
@@ -23,14 +24,15 @@ const DEPRECATED_FIX = { useNewUrlParser: true, useUnifiedTopology: true }; // c
 // connect to db
 // mongoose connections   --->   https://mongoosejs.com/docs/connections.html
 mongoose
-  .connect(CONNECTION_URL, DEPRECATED_FIX)
-  .then(() => console.log('✅ Mongoose (MongoDB) connected'))
-  .then(() => app.listen(PORT, () => console.log(`✅ Server listening on port: ${PORT}`)))
-  .catch((error) => console.log(`❌ MongoDB: ${error}`));
+  .connect(CONNECTION_URL, DEPRECATED_FIX) // just connect to db
+  .then(() => console.log('✅ MongoDB connected')) // similiar to - mongoose.connection.on('open')
+  .then(() => app.listen(PORT, () => console.log(`✅ Server listening on port: ${PORT}`))) // server is listening for requests
+  .catch((error) => console.log(`❌ MongoDB: ${error}`)); // similiar to - mongoose.connection.on('error')
 
-mongoose.connection.on('error', (error) => console.log(`❌ MongoDB: ${error}`));
+// mongoose.set('useCreateIndex', true);
+// ^ ^ ^ uncomment this if you use the "unique: true" property in a model Schema
 
 // routes
-app.get('/', (req, res) => res.send('Hello World - Express.js'));
+app.get('/example', (req, res) => res.send('Hello World - Express.js'));
 // app.use('/', IMPORTED_ROUTES);
-// un-comment this ^ ^ ^ to use imported route(s)
+// ^ ^ ^ un-comment this to use imported route(s)
