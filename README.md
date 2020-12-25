@@ -12,6 +12,8 @@
 
 ## How to use this template
 
+Here is a [demonstration video](https://youtu.be/e81rqD94QtM) of the following steps.
+
 <br />
 
 ### STEP 1:
