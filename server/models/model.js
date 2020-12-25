@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const instance = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId, // _id is set by default, you can remove this line
   /*
     name = property of document object
     String = type of value   --->   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
@@ -9,6 +10,7 @@ const instance = new mongoose.Schema({
 });
 
 // document = model name   --->   https://mongoosejs.com/docs/guide.html
-const document = 'example';
+// note: use a singular name, mongoose automatically creates a collections like so -> model: 'Person' === collection: 'people'
+const document = 'Example';
 
 export default mongoose.model(document, instance);
