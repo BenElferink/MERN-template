@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
+import mongoose from 'mongoose'; // MongoDB (database)
+import express from 'express'; // Backend App (server)
+import dotenv from 'dotenv'; // Secures content
+import cors from 'cors'; // HTTP headers
 // import IMPORTED_ROUTES from './routes/route.js';
 // ^ ^ ^ un-comment this to use imported route(s)
 // doing this will link the following files:   index.js -> route.js -> controller.js -> model.js
@@ -30,7 +30,7 @@ mongoose
   .catch((error) => console.log(`❌ MongoDB: ${error}`)); // similiar to - mongoose.connection.on('error')
 
 // mongoose.set('useCreateIndex', true);
-// ^ ^ ^ uncomment this if you use the "unique: true" property in a model Schema
+// ^ ^ ^ uncomment this if you use the "unique: true" property in a Schema
 
 // routes
 app.get('/example', (req, res) => res.send('Hello World - Express.js'));
