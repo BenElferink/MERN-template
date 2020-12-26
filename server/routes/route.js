@@ -1,13 +1,16 @@
 import express from 'express';
 import { getExamples, uploadExample } from './../controllers/controller.js'; // import request & response function
 
-const router = express.Router(); // initialize router
+// initialize router
+const router = express.Router();
 
 /*
-  1st param = extended path location
-  2nd param = request & response function
+  request methods   --->   https://www.tutorialspoint.com/http/http_methods.htm
+  1st param = extended url path
+  2nd param = middlewares (optional)
+  3rd param = request & response function (controller)
 */
-router.get('/', getExamples); // current path: http://localhost:8080/example
-router.post('/upload', uploadExample); // current path: http://localhost:8080/example/upload
+router.get('/', (request, response, next) => next(), getExamples); // current path: http://localhost:8080/example
+router.post('/upload', (request, response, next) => next(), uploadExample); // current path: http://localhost:8080/example/upload
 
 export default router;

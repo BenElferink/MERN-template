@@ -8,7 +8,7 @@ import cors from 'cors'; // HTTP headers
 
 // initialize app
 const app = express();
-dotenv.config(); // ???   --->   https://github.com/motdotla/dotenv#readme
+dotenv.config(); // what is dotenv   --->   https://github.com/motdotla/dotenv#readme
 
 // middlewares
 app.use(express.json()); // body parser
@@ -21,14 +21,12 @@ const CONNECTION_URL = process.env.CONNECTION_URL || `mongodb://localhost:27017/
 const PORT = process.env.PORT || 8080; // 8080 === development port
 const DEPRECATED_FIX = { useNewUrlParser: true, useUnifiedTopology: true }; // change this with (possible) warnings on first connection
 
-// connect to db
 // mongoose connections   --->   https://mongoosejs.com/docs/connections.html
-mongoose
-  .connect(CONNECTION_URL, DEPRECATED_FIX) // just connect to db
-  .then(() => console.log('✅ MongoDB connected')) // similiar to - mongoose.connection.on('open')
-  .then(() => app.listen(PORT, () => console.log(`✅ Server listening on port: ${PORT}`))) // server is listening for requests
-  .catch((error) => console.log(`❌ MongoDB: ${error}`)); // similiar to - mongoose.connection.on('error')
-
+// connect to db
+mongoose.connect(CONNECTION_URL, DEPRECATED_FIX).catch((error) => console.log('❌ MongoDB:', error)); // listen for errors on initial connection
+mongoose.connection.on('connected', () => console.log('✅ MongoDB connected'));
+mongoose.connection.on('error', (error) => console.log('❌ MongoDB:', error)); // listen for errors after the connection is established (errors during the session)
+mongoose.connection.on('disconnected', () => console.log('❌ MongoDB disconnected'));
 // mongoose.set('useCreateIndex', true);
 // ^ ^ ^ uncomment this if you use the "unique: true" property in a Schema
 
@@ -36,3 +34,6 @@ mongoose
 app.get('/example', (req, res) => res.send('Hello World - Express.js'));
 // app.use('/', IMPORTED_ROUTES);
 // ^ ^ ^ un-comment this to use imported route(s)
+
+// server is listening for requests
+app.listen(PORT, () => console.log(`✅ Server is listening on port: ${PORT}`));

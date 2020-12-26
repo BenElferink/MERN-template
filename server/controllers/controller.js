@@ -8,7 +8,7 @@ export const getExamples = (request, response, next) =>
 
 export const uploadExample = (request, response, next) =>
   new Example({
-    _id: mongoose.Types.ObjectId(), // _id is set by default, you can remove this line
+    _id: mongoose.Types.ObjectId(), // _id is set by default, (you can remove this line)
     name: request.body.fieldName, // fieldName === name used on client side
   })
     .save() // what is .save() ???   --->   https://mongoosejs.com/docs/api.html#document_Document-save
