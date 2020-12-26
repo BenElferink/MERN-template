@@ -2,7 +2,7 @@ import mongoose from 'mongoose'; // MongoDB (database)
 import express from 'express'; // Backend App (server)
 import dotenv from 'dotenv'; // Secures content
 import cors from 'cors'; // HTTP headers
-// import IMPORTED_ROUTES from './routes/route.js';
+// import IMPORTED_ROUTES from './api/routes/route.js';
 // ^ ^ ^ un-comment this to use imported route(s)
 // doing this will link the following files:   index.js -> route.js -> controller.js -> model.js
 
@@ -31,8 +31,8 @@ mongoose.connection.on('disconnected', () => console.log('❌ MongoDB disconnect
 // ^ ^ ^ uncomment this if you use the "unique: true" property in a Schema
 
 // routes
-app.get('/example', (req, res) => res.send('Hello World - Express.js'));
-// app.use('/', IMPORTED_ROUTES);
+app.get('/', (req, res) => res.send('Hello World - Express.js'));
+// app.use('/api/v1/example', IMPORTED_ROUTES);
 // ^ ^ ^ un-comment this to use imported route(s)
 
 // server is listening for requests
