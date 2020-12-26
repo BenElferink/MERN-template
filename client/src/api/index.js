@@ -1,9 +1,12 @@
 import axios from 'axios';
 
-// customizable base-url
-const url = 'http://localhost:8080/';
+// api base-url (that you created on server side)
+const url = 'http://localhost:8080/api/v1';
 
-// demonstration endpoints:
-//
-// export const getSomething = () => axios.get(url + 'path');
-// export const postSometing = (form) => axios.post(url + 'path', form);
+// current path: http://localhost:8080/api/v1/example
+// current method: GET
+// export const getSomething = () => axios.get(url + '/example');
+
+// current path: http://localhost:8080/api/v1/example/upload
+// current method: POST
+// export const postSometing = (form) => axios.post(url + '/example/upload', form);
