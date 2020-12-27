@@ -66,10 +66,10 @@ Set your database within `index.js`, then start server:
 
 ###### Client:
 
-> axios: ^0.21.0 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Build the API<br />
+> axios: ^0.21.0 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Use the API<br />
 > react: ^17.0.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br />
 > react-dom: ^17.0.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br />
-> react-scripts: ^4.0.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Quickly launch local server
+> react-scripts: ^4.0.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Quickly launch local service
 
 ###### Server:
 
@@ -77,4 +77,4 @@ Set your database within `index.js`, then start server:
 > dotenv: ^8.2.0 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Secure sensitive information<br />
 > express: ^4.17.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Server app<br />
 > mongoose: ^5.11.8 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; MongoDB database<br />
-> nodemon: ^2.0.6 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Improved server
+> nodemon: ^2.0.6 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Improved local service
