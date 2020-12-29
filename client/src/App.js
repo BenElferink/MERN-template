@@ -1,7 +1,5 @@
 import React from 'react';
-import HelloWorld from './components/HelloWorld';
-import './style/style.css'; // regular CSS -> className='app'
-import styles from './style/App.module.css'; // module CSS -> className={styles.App} (AKA styled components)
+import HelloWorld from './components/HelloWorld/HelloWorld';
 // import * as api from './api';
 // ^ ^ ^ un-comment this to import api endpoints
 
@@ -17,7 +15,7 @@ function App() {
   // ^ ^ ^ example using the api endpoint
 
   return (
-    <div className={styles.App}>
+    <div>
       <HelloWorld />
     </div>
   );
