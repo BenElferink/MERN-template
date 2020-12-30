@@ -10,7 +10,7 @@
 <br />
 <br />
 
-## How to use this template
+# How to use this template
 
 ### STEP 1:
 
