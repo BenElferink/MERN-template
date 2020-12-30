@@ -12,8 +12,6 @@
 
 ## How to use this template
 
-<br />
-
 ### STEP 1:
 
 Click ["Use this template"](https://github.com/belferink1996/MERN-template/generate) to generate a
