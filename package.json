@@ -1,0 +1,9 @@
+{
+  "name": "mern-application",
+  "version": "0.1.0",
+  "scripts": {
+    "install": "cd ./server && npm install && cd ./../client && npm install"
+  },
+  "author": "Ben Elferink",
+  "license": "ISC"
+}

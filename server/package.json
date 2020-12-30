@@ -1,12 +1,11 @@
 {
   "name": "server",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js||node server.js"
+    "start": "nodemon server.js || node server.js"
   },
-  "author": "Ben Elferink",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

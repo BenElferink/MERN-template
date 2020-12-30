@@ -27,27 +27,17 @@ new repository.<br /> Then open your terminal and clone your repository:
 
 ### STEP 2:
 
-Go to your client folder (frontend), and set your workspace:
+Go to your repository's folder, and install all dependecies:
 
-> cd ~/Desktop/[your-repo-name]/client <br /> npm install <br /> npm start
-
-```
-We're unable to detect target browsers.
-Would you like to add the defaults to your package.json? (Y/n)
-```
-
-> Y
+> cd ~/Desktop/[your-repo-name]<br /> npm install
 
 <br />
 
 ### STEP 3:
 
 Prepare your MongoDB database ([atlas](https://www.mongodb.com/cloud/atlas),
-[community](<https://github.com/belferink1996/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS)>)),<br />
-then go to your server folder (backend), and set your workspace:
-
-> cd ~/Desktop/[your-repo-name]/server <br /> npm install <br /> Set your database within
-> `index.js`, then start server: npm start
+[community](<https://github.com/belferink1996/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS)>)).<br />
+Then go to your server folder (backend), and set your database within `server.js`,
 
 <br />
 
