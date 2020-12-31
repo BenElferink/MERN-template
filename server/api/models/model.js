@@ -14,7 +14,7 @@ const instance = new mongoose.Schema(
   },
 );
 
-// document = model name   --->   https://mongoosejs.com/docs/guide.html
+// modelName   --->   https://mongoosejs.com/docs/guide.html
 // note: use a singular name, mongoose automatically creates a collection like so -> model: 'Person' === collection: 'people'
 const modelName = 'Example';
 
