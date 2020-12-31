@@ -27,8 +27,8 @@ mongoose.connect(CONNECTION_URL, DEPRECATED_FIX).catch((error) => console.log('�
 mongoose.connection.on('connected', () => console.log('✅ MongoDB connected'));
 mongoose.connection.on('error', (error) => console.log('❌ MongoDB:', error)); // listen for errors after the connection is established (errors during the session)
 mongoose.connection.on('disconnected', () => console.log('❌ MongoDB disconnected'));
-// mongoose.set('useCreateIndex', true);
-// ^ ^ ^ uncomment this if you use the "unique: true" property in a Schema
+mongoose.set('useCreateIndex', true);
+// ^ ^ ^ fix to a deprecated warning
 
 // routes
 app.get('/', (req, res) => res.send('Hello World - Express.js'));
