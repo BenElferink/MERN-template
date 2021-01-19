@@ -48,7 +48,7 @@ Then go to your server folder (backend), and set your database within `server.js
 
 ###### Client:
 
-> axios: ^0.21.0 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Use the API<br /> react: ^17.0.1
+> axios: ^0.21.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Use the API<br /> react: ^17.0.1
 > &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br /> react-dom: ^17.0.1
 > &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br /> react-scripts: ^4.0.1
 > &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Quickly launch local service

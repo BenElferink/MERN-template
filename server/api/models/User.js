@@ -3,19 +3,25 @@ import mongoose from 'mongoose';
 const instance = new mongoose.Schema(
   {
     _id: mongoose.Schema.Types.ObjectId, // _id is set by default, (you can remove this line)
-    name: String,
+
     /*
-      name = property of document object
-      String = type of value   --->   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+      name = Object key
+      String = Type
     */
+    name: String,
   },
   {
     timestamps: true,
+    // this creates and maintains:
+    // {
+    //   createdAt: Date,
+    //   updatedAt: Date,
+    // }
   },
 );
 
 // NOTE! use a singular model name, mongoose automatically creates a collection like so:
-// model: 'Person' === collection: 'people'
-const modelName = 'Example';
+// model: 'User' === collection: 'users'
+const modelName = 'User';
 
 export default mongoose.model(modelName, instance);
