@@ -1,16 +1,15 @@
 /*
-	HTML5 Reset :: style.css
-	----------------------------------------------------------
-	We have learned much from/been inspired by/taken code where offered from:
-
-	Eric Meyer					:: http://meyerweb.com
-	HTML5 Doctor				:: http://html5doctor.com
-  and the HTML5 Boilerplate	:: http://html5boilerplate.com
-
--------------------------------------------------------------------------------*/
-
-/* Let's default this puppy out
--------------------------------------------------------------------------------*/
+  HTML5 Reset  ::  reset.css
+	---------------------------
+  We have learned much from/been inspired by/taken code where offered from:
+  
+	Eric Meyer			      		 ::  http://meyerweb.com
+	HTML5 Doctor			       	 ::  http://html5doctor.com
+  and the HTML5 Boilerplate	 ::  http://html5boilerplate.com
+  -----------------------------------------------------------
+  Let's default this puppy out
+  -----------------------------
+*/
 
 html,
 body,
@@ -100,8 +99,10 @@ summary {
   display: block;
 }
 
-/* Handle box-sizing while better addressing child elements:
-   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+/* 
+  Handle box-sizing while better addressing child elements:
+  http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+*/
 html {
   box-sizing: border-box;
 }
@@ -112,8 +113,10 @@ html {
   box-sizing: inherit;
 }
 
-/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154
-   credits to:  Tim Murtaugh - https://gist.github.com/murtaugh/5247154 */
+/* 
+  consider resetting the default cursor: https://gist.github.com/murtaugh/5247154
+  credits to:  Tim Murtaugh - https://gist.github.com/murtaugh/5247154
+*/
 html,
 body {
   cursor: default;
@@ -123,11 +126,10 @@ code {
   cursor: text;
 }
 
-/* 
-textarea and input[type="text"] already receive 
-"cursor: text" via browsers' base stylesheets 
+/*
+  textarea and input[type="text"] already receive 
+  "cursor: text" via browsers' base stylesheets 
 */
-
 a,
 label,
 button,
@@ -142,8 +144,10 @@ input[disabled] {
   cursor: default;
 }
 
-/* Responsive images and other embedded objects */
-/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+/*
+  Responsive images and other embedded objects
+  if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto
+*/
 img,
 object,
 embed {
@@ -151,23 +155,27 @@ embed {
 }
 
 /*
-   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
-	In fact, it *will* cause problems with Google Maps' controls at small size.
-	If this is the case for you, try uncommenting the following:
+  Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+  In fact, it *will* cause problems with Google Maps' controls at small size.
+  If this is the case for you, try uncommenting the following:
 
-#map img {
-		max-width: none;
-}
+  #map img {
+    max-width: none;
+  }
 */
 
-/* force a vertical scrollbar to prevent a jumpy page */
+/*
+  force a vertical scrollbar to prevent a jumpy page
+*/
 html {
   overflow-y: scroll;
 }
 
-/* we use a lot of ULs that aren't bulleted.
+/*
+  we use a lot of ULs that aren't bulleted.
 	you'll have to restore the bullets within content,
-	which is fine because they're probably customized anyway */
+  which is fine because they're probably customized anyway
+*/
 ul {
   list-style: none;
 }
@@ -203,7 +211,9 @@ dfn[title] {
   cursor: help;
 }
 
-/* tables still need cellspacing="0" in the markup */
+/*
+  tables still need cellspacing="0" in the markup
+*/
 table {
   border-collapse: separate;
   border-spacing: 0;
@@ -275,47 +285,63 @@ td img {
   vertical-align: top;
 }
 
-/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930
-   This is tested to not break line-heights in:
-   -- WinXP/IE6, 
-   -- WinXP/IE7, 
-   -- WinXP/IE8, 
-   -- Mac/FF 3.5.9, 
-   -- Mac/Chrome 5.0, 
-   -- Mac/Safari 4.0.4, 
-   assuming a base font size of 14px and a line-height of 21px, or 1.5em. 
-   Poke this, try to make it break! 
-   
-   credits to:  Ruthie BenDor - https://gist.github.com/unruthless/413930 */
+/* 
+  Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930
+  This is tested to not break line-heights in:
+  -- WinXP/IE6, 
+  -- WinXP/IE7, 
+  -- WinXP/IE8, 
+  -- Mac/FF 3.5.9, 
+  -- Mac/Chrome 5.0, 
+  -- Mac/Safari 4.0.4, 
+  assuming a base font size of 14px and a line-height of 21px, or 1.5em. 
+  Poke this, try to make it break! 
+
+  credits to:  Ruthie BenDor - https://gist.github.com/unruthless/413930
+*/
 sub,
 sup {
-  /* Specified in % so that the sup/sup is the
-     right size relative to the surrounding text */
+  /*
+    Specified in % so that the sup/sup is the
+    right size relative to the surrounding text
+  */
   font-size: 75%;
 
-  /* Zero out the line-height so that it doesn't
-     interfere with the positioning that follows */
+  /*
+    Zero out the line-height so that it doesn't
+    interfere with the positioning that follows
+  */
   line-height: 0;
 
-  /* Where the magic happens: makes all browsers position
-     the sup/sup properly, relative to the surrounding text */
+  /*
+    Where the magic happens: makes all browsers position
+    the sup/sup properly, relative to the surrounding text
+  */
   position: relative;
 
-  /* Note that if you're using Eric Meyer's reset.css, this
-     is already set and you can remove this rule 
-     vertical-align: baseline;*/
+  /*
+    Note that if you're using Eric Meyer's reset.css, this
+    is already set and you can remove this rule:
+    vertical-align: baseline;
+  */
 }
 sup {
-  /* Move the superscripted text up */
+  /*
+    Move the superscripted text up
+  */
   top: -0.5em;
 }
 sub {
-  /* Move the subscripted text down, but only
-     half as far down as the superscript moved up */
+  /*
+    Move the subscripted text down, but only
+    half as far down as the superscript moved up
+  */
   bottom: -0.25em;
 }
 
-/* standardize any monospaced elements */
+/*
+  standardize any monospaced elements
+*/
 pre,
 code,
 kbd,
@@ -323,7 +349,9 @@ samp {
   font-family: monospace, sans-serif;
 }
 
-/* hand cursor on clickable elements */
+/*
+  hand cursor on clickable elements
+*/
 .clickable,
 label,
 input[type='button'],
@@ -333,7 +361,9 @@ button {
   cursor: pointer;
 }
 
-/* Webkit browsers add a 2px margin outside the chrome of form elements */
+/*
+  Webkit browsers add a 2px margin outside the chrome of form elements
+*/
 button,
 input,
 select,
@@ -341,24 +371,34 @@ textarea {
   margin: 0;
 }
 
-/* make buttons play nice in IE */
+/*
+  make buttons play nice in IE
+*/
 button,
 input[type='button'] {
   width: auto;
   overflow: visible;
 }
 
-/* scale images in IE7 more attractively */
+/*
+  scale images in IE7 more attractively
+*/
 .ie7 img {
   -ms-interpolation-mode: bicubic;
 }
 
-/* prevent BG image flicker upon hover
-   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
-.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+/*
+  prevent BG image flicker upon hover
+  (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+
+  .ie6 html {
+    filter: expression(document.execCommand('BackgroundImageCache', false, true));
+  }
 */
 
-/* let's clear some floats */
+/*
+  let's clear some floats
+*/
 .clearfix:after {
   content: ' ';
   display: block;

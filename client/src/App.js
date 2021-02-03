@@ -1,11 +1,9 @@
-import './styles/App.css';
+import './styles/styles.css';
 
-function App() {
+export default function App() {
   return (
     <div className='App'>
       <p>Hello World - React.js</p>
     </div>
   );
 }
-
-export default App;

@@ -57,6 +57,6 @@ Then go to your server folder (backend), and set your database within `server.js
 
 > cors: ^2.8.5 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Enable HTTP requests<br/> dotenv: ^8.2.0
 > &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Secure sensitive information<br /> express: ^4.17.1
-> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Server app<br /> mongoose: ^5.11.8 &nbsp;&nbsp;&nbsp;
+> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Server app<br /> mongoose: ^5.11.14 &nbsp;&nbsp;&nbsp;
 > ---> &nbsp;&nbsp;&nbsp; MongoDB database<br /> morgan: ^1.10.0 &nbsp;&nbsp;&nbsp; --->
 > &nbsp;&nbsp;&nbsp; Logs requests
