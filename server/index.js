@@ -9,7 +9,7 @@ import morgan from 'morgan'; // Logs incoming requests
 
 // initialize app
 const app = express();
-const origin = '*';
+const origin = '*'; // allow source of requests (* --> everywhere)
 
 // middlewares
 dotenv.config();
@@ -34,7 +34,7 @@ db.on('disconnected', () => console.log('❌ MongoDB disconnected')); // disconn
 db.on('error', (error) => console.log('❌ MongoDB connection error', error)); // listen for errors during the session
 
 // routes
-app.get('/', (request, response, next) => response.status(200).json('Hello World - Express.js'));
+app.get('/', (request, response, next) => response.status(200).json('<h1>Hello World!</h1>'));
 // app.use('/api/v1/users', routes);
 // ^ ^ ^ un-comment this to use imported route(s)
 
