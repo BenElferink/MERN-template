@@ -48,15 +48,15 @@ Then go to your server folder (backend), and set your database within `server.js
 
 ###### Client:
 
-> axios: ^0.21.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Use the API<br /> react: ^17.0.1
-> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br /> react-dom: ^17.0.1
-> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br /> react-scripts: ^4.0.1
-> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Quickly launch local service
+> axios: 0.21.1 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Use the API<br /> react: 17.0.1
+> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; UI framework<br /> react-dom: 17.0.1 &nbsp;&nbsp;&nbsp;
+> ---> &nbsp;&nbsp;&nbsp; UI framework<br /> react-scripts: 4.0.2 &nbsp;&nbsp;&nbsp; --->
+> &nbsp;&nbsp;&nbsp; React 'npm' scripts
 
 ###### Server:
 
-> cors: ^2.8.5 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Enable HTTP requests<br/> dotenv: ^8.2.0
-> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Secure sensitive information<br /> express: ^4.17.1
-> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Server app<br /> mongoose: ^5.11.14 &nbsp;&nbsp;&nbsp;
-> ---> &nbsp;&nbsp;&nbsp; MongoDB database<br /> morgan: ^1.10.0 &nbsp;&nbsp;&nbsp; --->
-> &nbsp;&nbsp;&nbsp; Logs requests
+> cors: 2.8.5 &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Enable HTTP requests<br/> dotenv: 8.2.0
+> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Secure sensitive information<br /> express: 4.17.1
+> &nbsp;&nbsp;&nbsp; ---> &nbsp;&nbsp;&nbsp; Server app<br /> mongoose: 5.11.15 &nbsp;&nbsp;&nbsp;
+> ---> &nbsp;&nbsp;&nbsp; MongoDB database<br /> morgan: 1.10.0 &nbsp;&nbsp;&nbsp; --->
+> &nbsp;&nbsp;&nbsp; Logs incoming requests

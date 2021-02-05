@@ -1,7 +1,7 @@
 {
   "homepage": "",
   "name": "server",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "type": "module",
@@ -10,10 +10,10 @@
   },
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.11.14",
-    "morgan": "^1.10.0"
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "mongoose": "5.11.15",
+    "morgan": "1.10.0"
   }
 }

@@ -1,7 +1,7 @@
 {
   "homepage": "",
   "name": "client",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "private": true,
   "main": "index.js",
@@ -12,10 +12,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "^4.0.1"
+    "axios": "0.21.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-scripts": "4.0.2"
   },
   "eslintConfig": {
     "extends": [
