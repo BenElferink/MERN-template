@@ -18,8 +18,8 @@ app.use(express.urlencoded({ limit: '1mb', extended: false })); // url parser
 app.use(morgan('common'));
 
 // configure db:
-// for "atlas" edit CONNECTION_URL in -> .env file || for "community server" edit <dbname>
-const CONNECTION_URL = process.env.CONNECTION_URL || 'mongodb://localhost:27017/<dbname>';
+// for "atlas" edit MONGO_URI in -> .env file || for "community server" edit <dbname>
+const CONNECTION_URL = process.env.MONGO_URI || 'mongodb://localhost:27017/<dbname>';
 const DEPRECATED_FIX = { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true };
 
 // connect to db
