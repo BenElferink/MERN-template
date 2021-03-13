@@ -3,9 +3,8 @@ import express from 'express'; // Backend App (server)
 import dotenv from 'dotenv'; // Secures variables
 import cors from 'cors'; // HTTP headers (enable requests)
 import morgan from 'morgan'; // Logs incoming requests
-// import routes from './api/routes/routes.js';
-// ^ ^ ^ un-comment this to use imported route(s)
-// doing this will link the following files:   index.js -> routes.js -> controllers.js -> User.js
+import authRoutes from './api/routes/authRoutes.js';
+// ^ ^ ^ how to use imported route(s)
 
 // initialize app
 const app = express();
@@ -33,11 +32,11 @@ db.on('connected', () => console.log('✅ MongoDB connected')); // connected
 db.on('disconnected', () => console.log('❌ MongoDB disconnected')); // disconnected
 db.on('error', (error) => console.log('❌ MongoDB connection error', error)); // listen for errors during the session
 
-// routes
-app.get('/', (request, response, next) => response.status(200).json('<h1>Hello World!</h1>'));
-// app.use('/api/v1/users', routes);
-// ^ ^ ^ un-comment this to use imported route(s)
+// define routes
+app.get('/', (request, response, next) => response.status(200).json({ message: 'Hello World!' }));
+app.use('/auth', authRoutes);
+// ^ ^ ^ how to use imported route(s)
 
-// server is listening for requests
+// listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`✅ Server is listening on port: ${PORT}`));

@@ -19,10 +19,10 @@
       "type":"image/png"
     }
   ],
-  "display": "standalone",
   "start_url": ".",
-  "theme_color": "#000",
-  "background_color": "#fff",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
   "developer": {
     "name": "",
     "url": ""
