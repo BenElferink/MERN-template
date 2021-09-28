@@ -1,28 +1,24 @@
-import './styles/styles.css';
-import { useAuth } from './contexts/AuthContext';
+import {useAuth} from './contexts/AuthContext'
+import Header from './components/Header'
 
 export default function App() {
-  const { isLoggedIn } = useAuth();
+  const {isLoggedIn} = useAuth()
 
   return (
     <div className='App'>
-      <h1>{isLoggedIn ? <LoggedInText /> : <LoggedOutText />}</h1>
+      <Header />
+
+      {isLoggedIn ? <LoggedInText /> : <LoggedOutText />}
     </div>
-  );
+  )
 }
 
-const LoggedInText = () => (
-  <>
-    You are (not really) logged in,
-    <br />
-    check your console.log()
-  </>
-);
+const LoggedInText = () => {
+  const {account} = useAuth()
+
+  return <p>Hey, {account.username}! I'm happy to let you know: you are authenticated!</p>
+}
 
 const LoggedOutText = () => (
-  <>
-    Don't forget to start your backend server,
-    <br />
-    then hit refresh and see what happens...
-  </>
-);
+  <p>Don't forget to start your backend server, then authenticate yourself.</p>
+)

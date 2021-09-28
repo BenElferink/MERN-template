@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const instance = new mongoose.Schema(
   {
@@ -7,22 +7,23 @@ const instance = new mongoose.Schema(
       _id: mongoose.Schema.Types.ObjectId,
     */
 
-    // key: Type,
-    email: String,
-    password: String,
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
-    // ^ ^ ^ this creates and maintains:
-    // {
-    //   createdAt: Date,
-    //   updatedAt: Date,
-    // }
   },
-);
+)
 
 // NOTE! use a singular model name, mongoose automatically creates a collection like so:
 // model: 'Account' === collection: 'accounts'
-const modelName = 'Account';
+const modelName = 'Account'
 
-export default mongoose.model(modelName, instance);
+module.exports = mongoose.model(modelName, instance)

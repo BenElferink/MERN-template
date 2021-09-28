@@ -1,8 +1,6 @@
 {
-  "homepage": "",
   "name": "client",
   "version": "0.1.0",
-  "description": "",
   "private": true,
   "main": "index.js",
   "license": "ISC",
@@ -12,15 +10,18 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@fontsource/roboto": "^4.5.1",
+    "@mui/material": "^5.0.1",
     "axios": "^0.21.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
