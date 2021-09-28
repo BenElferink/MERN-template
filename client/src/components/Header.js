@@ -52,7 +52,7 @@ export default function Header() {
         transformOrigin={{vertical: 'top', horizontal: 'right'}}>
         <List style={{minWidth: '100px'}}>
           <ListSubheader style={{textAlign: 'center'}}>
-            Hello, {isLoggedIn ? 'Ben' : 'Guest'}
+            Hello, {isLoggedIn ? account.username : 'Guest'}
           </ListSubheader>
 
           {isLoggedIn ? (

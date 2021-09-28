@@ -77,6 +77,7 @@ function LoginForm({formData, handleChange}) {
       <TextField
         label='Username'
         name='username'
+        type='text'
         value={formData['username'] ?? ''}
         onChange={handleChange}
         variant='filled'
@@ -86,6 +87,7 @@ function LoginForm({formData, handleChange}) {
       <TextField
         label='Password'
         name='password'
+        type='password'
         value={formData['password'] ?? ''}
         onChange={handleChange}
         variant='filled'
@@ -104,6 +106,7 @@ function RegisterForm({formData, handleChange}) {
       <TextField
         label='Username'
         name='username'
+        type='text'
         value={formData['username'] ?? ''}
         onChange={handleChange}
         variant='filled'
@@ -113,6 +116,7 @@ function RegisterForm({formData, handleChange}) {
       <TextField
         label='Password'
         name='password'
+        type='password'
         value={formData['password'] ?? ''}
         onChange={handleChange}
         variant='filled'
