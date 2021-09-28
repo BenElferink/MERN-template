@@ -15,6 +15,10 @@
 This template allows you to quick-start your Fullstack application using the MERN stack, it has a server setup with some basic authentication, and a client ready to communicate with the backend.<br />
 I have attempted to use the best practices for both ends, which should make it easy for any advanced/new developer to use, and perhaps learn from.
 
+<img src='https://github.com/belferink1996/MERN-template/blob/images/images/Screen%20Shot%202021-09-28%20at%2019.02.24.png' width='700' />
+
+<img src='https://github.com/belferink1996/MERN-template/blob/images/images/Screen%20Shot%202021-09-28%20at%2019.02.33.png' width='700' />
+
 <br />
 <br />
 
