@@ -66,18 +66,6 @@ export function AuthProvider({children}) {
     }
   }
 
-  const getTokenPayload = () => {
-    if (!token) {
-      console.warn(`Token is ${null}/${undefined}`)
-      return {}
-    }
-
-    const informativePart = token.split('.')[1]
-    const payload = JSON.parse(window.atob(informativePart))
-
-    return payload
-  }
-
   // This side effect keeps local storage updated with recent token value,
   // making sure it can be re-used upon refresh or re-open browser
   useEffect(() => {
@@ -104,7 +92,6 @@ export function AuthProvider({children}) {
         register,
         login,
         logout,
-        getTokenPayload,
       }}>
       {children}
     </AuthContext.Provider>
