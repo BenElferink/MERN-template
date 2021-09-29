@@ -17,11 +17,15 @@ body {
 }
 
 .header {
-  width: 100%;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100% !important;
+  padding: 0 1rem !important;
+  background-color: whitesmoke !important;
+  color: black !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
 .error {

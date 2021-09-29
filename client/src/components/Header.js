@@ -1,5 +1,13 @@
 import {Fragment, useState} from 'react'
-import {IconButton, Avatar, Popover, List, ListSubheader, ListItemButton} from '@mui/material'
+import {
+  AppBar,
+  IconButton,
+  Avatar,
+  Popover,
+  List,
+  ListSubheader,
+  ListItemButton,
+} from '@mui/material'
 import OnlineIndicator from './OnlineIndicator'
 import AuthModal from './AuthModal'
 import {useAuth} from '../contexts/AuthContext'
@@ -35,7 +43,7 @@ export default function Header() {
   }
 
   return (
-    <header className='header'>
+    <AppBar className='header' position='static'>
       <h1>Web App</h1>
 
       <IconButton onClick={openPopover}>
@@ -72,6 +80,6 @@ export default function Header() {
         isRegisterMode={register}
         toggleRegister={() => setRegister((prev) => !prev)}
       />
-    </header>
+    </AppBar>
   )
 }
