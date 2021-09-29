@@ -44,7 +44,7 @@ async function register(request, response, next) {
     delete newAccount.password
 
     // Generate access token
-    const token = signToken({uid: newAccount._id})
+    const token = signToken({uid: newAccount._id, role: newAccount.role})
 
     response.status(201).json({
       message: 'Succesfully registered',

@@ -43,7 +43,7 @@ async function login(request, response, next) {
     delete foundAccount.password
 
     // Generate access token
-    const token = signToken({uid: foundAccount._id})
+    const token = signToken({uid: foundAccount._id, role: foundAccount.role})
 
     response.status(200).json({
       message: 'Succesfully logged-in',
