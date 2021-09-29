@@ -40,7 +40,7 @@ export default function Header() {
 
       <IconButton onClick={openPopover}>
         <OnlineIndicator online={isLoggedIn}>
-          <Avatar src={account?.username ?? ''} alt={account?.username ?? ''} />
+          <Avatar src={account?.username || ''} alt={account?.username || ''} />
         </OnlineIndicator>
       </IconButton>
 
@@ -69,7 +69,7 @@ export default function Header() {
       <AuthModal
         open={authModal}
         close={() => setAuthModal(false)}
-        register={register}
+        isRegisterMode={register}
         toggleRegister={() => setRegister((prev) => !prev)}
       />
     </header>

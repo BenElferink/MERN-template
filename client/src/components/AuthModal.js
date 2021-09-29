@@ -1,12 +1,11 @@
 import {Fragment, useState} from 'react'
 import {Dialog, DialogTitle, TextField, Button, CircularProgress} from '@mui/material'
-import axios from '../api'
 import {useAuth} from '../contexts/AuthContext'
 
 const textFieldSx = {mx: 2, my: 0.5}
 
-export default function AuthModal({open, close, register, toggleRegister}) {
-  const {setIsLoggedIn, setToken, setAccount} = useAuth()
+export default function AuthModal({open, close, isRegisterMode, toggleRegister}) {
+  const {login, register} = useAuth()
 
   const [formData, setFormData] = useState({})
   const [loading, setLoading] = useState(false)
@@ -22,16 +21,10 @@ export default function AuthModal({open, close, register, toggleRegister}) {
     setError('')
 
     try {
-      const requestPath = register ? '/auth/register' : '/auth/login'
-      const response = await axios.post(requestPath, formData)
-
-      setToken(response.data.token)
-      setAccount(response.data.data)
-      setIsLoggedIn(true)
+      isRegisterMode ? await register(formData) : await login(formData)
       close()
     } catch (error) {
-      console.error(error)
-      setError(error?.response?.data?.message ?? error.message)
+      setError(error)
     }
 
     setLoading(false)
@@ -42,7 +35,7 @@ export default function AuthModal({open, close, register, toggleRegister}) {
 
   return (
     <Dialog open={open} onClose={close}>
-      {register ? (
+      {isRegisterMode ? (
         <RegisterForm formData={formData} handleChange={handleChange} />
       ) : (
         <LoginForm formData={formData} handleChange={handleChange} />
@@ -57,13 +50,13 @@ export default function AuthModal({open, close, register, toggleRegister}) {
       ) : (
         <Button
           onClick={clickSubmit}
-          disabled={register ? disabledRegisterButton : disabledLoginButton}>
-          {register ? 'Register' : 'Login'}
+          disabled={isRegisterMode ? disabledRegisterButton : disabledLoginButton}>
+          {isRegisterMode ? 'Register' : 'Login'}
         </Button>
       )}
 
       <Button onClick={toggleRegister}>
-        {register ? 'I already have an account' : "I don't have an account"}
+        {isRegisterMode ? 'I already have an account' : "I don't have an account"}
       </Button>
     </Dialog>
   )
@@ -78,7 +71,7 @@ function LoginForm({formData, handleChange}) {
         label='Username'
         name='username'
         type='text'
-        value={formData['username'] ?? ''}
+        value={formData['username'] || ''}
         onChange={handleChange}
         variant='filled'
         sx={textFieldSx}
@@ -88,7 +81,7 @@ function LoginForm({formData, handleChange}) {
         label='Password'
         name='password'
         type='password'
-        value={formData['password'] ?? ''}
+        value={formData['password'] || ''}
         onChange={handleChange}
         variant='filled'
         sx={textFieldSx}
@@ -107,7 +100,7 @@ function RegisterForm({formData, handleChange}) {
         label='Username'
         name='username'
         type='text'
-        value={formData['username'] ?? ''}
+        value={formData['username'] || ''}
         onChange={handleChange}
         variant='filled'
         sx={textFieldSx}
@@ -117,7 +110,7 @@ function RegisterForm({formData, handleChange}) {
         label='Password'
         name='password'
         type='password'
-        value={formData['password'] ?? ''}
+        value={formData['password'] || ''}
         onChange={handleChange}
         variant='filled'
         sx={textFieldSx}

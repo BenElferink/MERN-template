@@ -11,14 +11,71 @@ export function useAuth() {
 
 // export the provider (handle all the logic here)
 export function AuthProvider({children}) {
-  const [token, setToken] = useState(localStorage.getItem('token') ?? null)
-  const [account, setAccount] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [account, setAccount] = useState(null)
+  const [token, setToken] = useState(localStorage.getItem('token') || null)
+
+  const register = (formData = {}) =>
+    new Promise((resolve, reject) => {
+      axios
+        .post('/auth/register', formData)
+        .then(({data: {data, token}}) => {
+          setAccount(data)
+          setToken(token)
+          setIsLoggedIn(true)
+          resolve(true)
+        })
+        .catch((error) => {
+          console.error(error)
+          reject(error?.response?.data?.message || error.message)
+        })
+    })
+
+  const login = (formData = {}) =>
+    new Promise((resolve, reject) => {
+      axios
+        .post('/auth/login', formData)
+        .then(({data: {data, token}}) => {
+          setAccount(data)
+          setToken(token)
+          setIsLoggedIn(true)
+          resolve(true)
+        })
+        .catch((error) => {
+          console.error(error)
+          reject(error?.response?.data?.message || error.message)
+        })
+    })
 
   const logout = () => {
-    setToken(null)
-    setAccount(null)
     setIsLoggedIn(false)
+    setAccount(null)
+    setToken(null)
+  }
+
+  const getAccount = async () => {
+    try {
+      const headers = {headers: {authorization: `Bearer ${token}`}}
+      const response = await axios.get('/auth/account', headers)
+
+      setAccount(response.data.data)
+      setIsLoggedIn(true)
+    } catch (error) {
+      console.error(error)
+      if (error?.response?.statusCode === 401) setToken(null)
+    }
+  }
+
+  const getTokenPayload = () => {
+    if (!token) {
+      console.warn(`Token is ${null}/${undefined}`)
+      return {}
+    }
+
+    const informativePart = token.split('.')[1]
+    const payload = JSON.parse(window.atob(informativePart))
+
+    return payload
   }
 
   // This side effect keeps local storage updated with recent token value,
@@ -32,28 +89,23 @@ export function AuthProvider({children}) {
   }, [token])
 
   // This side effect runs only if we have a token, but no account or logged-in boolean.
-  // This "if" statement applies only when refreshed, or re-opened the browser,
+  // This "if" statement is "true" only when refreshed, or re-opened the browser,
   // if true, it will then ask the backend for the account information (and will get them if the token hasn't expired)
   useEffect(() => {
-    if (!isLoggedIn && !account && token) {
-      ;(async () => {
-        try {
-          const headers = {headers: {authorization: `Bearer ${token}`}}
-          const response = await axios.get('/auth/account', headers)
-
-          setAccount(response.data.data)
-          setIsLoggedIn(true)
-        } catch (error) {
-          console.error(error)
-          if (error?.response?.statusCode === 401) setToken(null)
-        }
-      })()
-    }
+    if (!isLoggedIn && !account && token) getAccount()
   }, [isLoggedIn, account, token]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <AuthContext.Provider
-      value={{isLoggedIn, setIsLoggedIn, token, setToken, account, setAccount, logout}}>
+      value={{
+        isLoggedIn,
+        account,
+        token,
+        register,
+        login,
+        logout,
+        getTokenPayload,
+      }}>
       {children}
     </AuthContext.Provider>
   )
