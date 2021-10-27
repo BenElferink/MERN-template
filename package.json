@@ -22,6 +22,6 @@
     "delete-modules": "rm -r ./node_modules && cd ./server && rm -r ./node_modules && cd ../client && rm -r ./node_modules"
   },
   "devDependencies": {
-    "concurrently": "^6.2.1"
+    "concurrently": "^6.3.0"
   }
 }
