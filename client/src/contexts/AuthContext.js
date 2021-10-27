@@ -1,4 +1,4 @@
-import {createContext, useContext, useState, useEffect} from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import axios from '../api'
 
 // init context
@@ -10,7 +10,7 @@ export function useAuth() {
 }
 
 // export the provider (handle all the logic here)
-export function AuthProvider({children}) {
+export function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [account, setAccount] = useState(null)
   const [token, setToken] = useState(localStorage.getItem('token') || null)
@@ -19,9 +19,14 @@ export function AuthProvider({children}) {
     new Promise((resolve, reject) => {
       axios
         .post('/auth/register', formData)
-        .then(({data: {data, token}}) => {
-          setAccount(data)
-          setToken(token)
+        .then(({
+          data: {
+            data: accountData,
+            token: accessToken,
+          },
+        }) => {
+          setAccount(accountData)
+          setToken(accessToken)
           setIsLoggedIn(true)
           resolve(true)
         })
@@ -35,9 +40,14 @@ export function AuthProvider({children}) {
     new Promise((resolve, reject) => {
       axios
         .post('/auth/login', formData)
-        .then(({data: {data, token}}) => {
-          setAccount(data)
-          setToken(token)
+        .then(({
+          data: {
+            data: accountData,
+            token: accessToken,
+          },
+        }) => {
+          setAccount(accountData)
+          setToken(accessToken)
           setIsLoggedIn(true)
           resolve(true)
         })
@@ -53,12 +63,21 @@ export function AuthProvider({children}) {
     setToken(null)
   }
 
-  const getAccount = async () => {
+  const loginWithToken = async () => {
     try {
-      const headers = {headers: {authorization: `Bearer ${token}`}}
-      const response = await axios.get('/auth/account', headers)
+      const {
+        data: {
+          data: accountData,
+          token: accessToken,
+        },
+      } = await axios.get('/auth/login', {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
 
-      setAccount(response.data.data)
+      setAccount(accountData)
+      setToken(accessToken)
       setIsLoggedIn(true)
     } catch (error) {
       console.error(error)
@@ -80,7 +99,7 @@ export function AuthProvider({children}) {
   // This "if" statement is "true" only when refreshed, or re-opened the browser,
   // if true, it will then ask the backend for the account information (and will get them if the token hasn't expired)
   useEffect(() => {
-    if (!isLoggedIn && !account && token) getAccount()
+    if (!isLoggedIn && !account && token) loginWithToken()
   }, [isLoggedIn, account, token]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
