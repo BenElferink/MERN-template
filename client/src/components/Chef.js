@@ -1,12 +1,12 @@
 import React from "react";
 
-function Footer() {
+function Chef() {
   const year = new Date().getFullYear();
   return (
     <footer>
-      <p>end {year}</p>
+      <p>start {year}</p>
     </footer>
   );
 }
 
-export default Footer;
+export default Chef;

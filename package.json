@@ -1,21 +1,12 @@
 {
-  "homepage": "https://github.com/belferink1996/MERN-template#readme",
   "name": "mern-application",
   "version": "0.1.0",
   "description": "",
-  "private": true,
   "main": "",
+  "author": "",
   "license": "ISC",
-  "keywords": [],
-  "author": "Ben Elferink <ben.elferink@icloud.com> (https://www.linkedin.com/in/ben-elferink-37ba251b9)",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/belferink1996/MERN-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/belferink1996/MERN-template/issues",
-    "email": "ben.elferink@icloud.com"
-  },
+ 
+ 
   "scripts": {
     "install": "concurrently \"cd ./server && npm i\" \"cd ./client && npm i\"",
     "start": "concurrently \"cd ./server && npm start\" \"cd ./client && npm start\"",

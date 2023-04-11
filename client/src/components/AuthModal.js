@@ -26,9 +26,13 @@ export default function AuthModal({ open, close, isRegisterMode, toggleRegister 
     setError('');
 
     try {
-      // Add the selected role to the formData before calling register()
-      formData.role = selectedRole;
-      await register(formData);
+      if(isRegisterMode) {
+        // Add the selected role to the formData before calling register()
+        formData.role = selectedRole;
+        await register(formData);
+      } else {
+        await login(formData);
+      }
       close();
     } catch (error) {
       setError(error);
