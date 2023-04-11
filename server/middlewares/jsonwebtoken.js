@@ -9,7 +9,7 @@ const signToken = (payload = {}, expiresIn = '12h') => {
 
 const authorizeBearerToken = (request, response, next) => {
   try {
-    const token = request.headers.authorization?.split(' ')[1]
+    const token = request.headers.authorization?.split(' ')[1] // extrat bearertoken from  req headers
     if (!token) {
       return response.status(400).json({
         message: 'Token not provided',
@@ -24,6 +24,7 @@ const authorizeBearerToken = (request, response, next) => {
     }
 
     request.auth = auth
+
     next()
   } catch (error) {
     console.error(error)

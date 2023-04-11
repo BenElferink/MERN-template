@@ -1,56 +1,73 @@
-import {Fragment, useState} from 'react'
-import {Dialog, DialogTitle, TextField, Button, CircularProgress} from '@mui/material'
-import {useAuth} from '../contexts/AuthContext'
+import { Fragment, useState } from 'react';
+import { Dialog, DialogTitle, TextField, Button, CircularProgress, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { useAuth } from '../contexts/AuthContext';
 
-const textFieldSx = {mx: 2, my: 0.5}
+const textFieldSx = { mx: 2, my: 0.5 };
 
-export default function AuthModal({open, close, isRegisterMode, toggleRegister}) {
-  const {login, register} = useAuth()
+export default function AuthModal({ open, close, isRegisterMode, toggleRegister }) {
+  const { login, register } = useAuth();
 
-  const [formData, setFormData] = useState({})
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [formData, setFormData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [selectedRole, setSelectedRole] = useState('user'); // Default role is 'user'
 
   const handleChange = (e) => {
-    const {name, value} = e.target
-    setFormData((prev) => ({...prev, [name]: value}))
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleRoleChange = (e) => {
+    setSelectedRole(e.target.value);
   }
 
   const clickSubmit = async () => {
-    setLoading(true)
-    setError('')
+    setLoading(true);
+    setError('');
 
     try {
-      isRegisterMode ? await register(formData) : await login(formData)
-      close()
+      // Add the selected role to the formData before calling register()
+      formData.role = selectedRole;
+      await register(formData);
+      close();
     } catch (error) {
-      setError(error)
+      setError(error);
     }
 
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
-  const disabledLoginButton = !formData['username'] || !formData['password']
-  const disabledRegisterButton = !formData['username'] || !formData['password']
+  const disabledLoginButton = !formData['username'] || !formData['password'];
+  const disabledRegisterButton = !formData['username'] || !formData['password'];
 
   return (
     <Dialog open={open} onClose={close}>
       {isRegisterMode ? (
-        <RegisterForm formData={formData} handleChange={handleChange} />
+        <Fragment>
+          <RegisterForm formData={formData} handleChange={handleChange} />
+          <FormControl component="fieldset" sx={{ mt: 2 }}>
+            <FormLabel component="legend">Role</FormLabel>
+            <RadioGroup row aria-label="role" name="role" value={selectedRole} onChange={handleRoleChange}>
+              <FormControlLabel value="user" control={<Radio />} label="User" />
+              <FormControlLabel value="admin" control={<Radio />} label="Admin" />
+            </RadioGroup>
+          </FormControl>
+        </Fragment>
       ) : (
         <LoginForm formData={formData} handleChange={handleChange} />
       )}
 
-      {error && <span className='error'>{error}</span>}
+      {error && <span className="error">{error}</span>}
 
       {loading ? (
         <center>
-          <CircularProgress color='inherit' />
+          <CircularProgress color="inherit" />
         </center>
       ) : (
         <Button
           onClick={clickSubmit}
-          disabled={isRegisterMode ? disabledRegisterButton : disabledLoginButton}>
+          disabled={isRegisterMode ? disabledRegisterButton : disabledLoginButton}
+        >
           {isRegisterMode ? 'Register' : 'Login'}
         </Button>
       )}
@@ -59,8 +76,10 @@ export default function AuthModal({open, close, isRegisterMode, toggleRegister})
         {isRegisterMode ? 'I already have an account' : "I don't have an account"}
       </Button>
     </Dialog>
-  )
+  );
 }
+
+/////////////////////////////////////////////////////////////////////////
 
 function LoginForm({formData, handleChange}) {
   return (
@@ -90,7 +109,7 @@ function LoginForm({formData, handleChange}) {
     </Fragment>
   )
 }
-
+/////////////////////////////////////////////////////////////////
 function RegisterForm({formData, handleChange}) {
   return (
     <Fragment>

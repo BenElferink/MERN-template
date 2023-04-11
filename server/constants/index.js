@@ -2,7 +2,7 @@ const ORIGIN = '*'
 const PORT = process.env.PORT || 8080
 
 // for "atlas" edit MONGO_URI in -> .env file || for "community server" edit <MyDatabase>
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://0.0.0.0:27017/MyDatabase'
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://0.0.0.0:27017/Accountsdatabase'
 const MONGO_OPTIONS = {
          useUnifiedTopology:true,
          useNewUrlParser: true,

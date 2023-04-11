@@ -2,7 +2,6 @@ const joi = require('joi')
 const bcrypt = require('bcrypt')
 const Account = require('../../models/Account')
 const {signToken} = require('../../middlewares/jsonwebtoken')
-
 async function register(request, response, next) {
   try {
     // Validate request data
@@ -10,6 +9,7 @@ async function register(request, response, next) {
       .object({
         username: joi.string().required(),
         password: joi.string().required(),
+        role: joi.string().required()
       })
       .validateAsync(request.body)
   } catch (error) {
@@ -20,10 +20,10 @@ async function register(request, response, next) {
   }
 
   try {
-    const {username, password} = request.body
+    const { username, password, role } = request.body // Include 'role' in destructuring assignment
 
     // Verify account username as unique
-    const existingAccount = await Account.findOne({username})
+    const existingAccount = await Account.findOne({ username })
     if (existingAccount) {
       return response.status(400).json({
         error: username,
@@ -36,7 +36,7 @@ async function register(request, response, next) {
     const hash = await bcrypt.hash(password, salt)
 
     // Create account
-    const newAccount = new Account({username, password: hash})
+    const newAccount = new Account({ username, password: hash, role })
     await newAccount.save()
 
     // Remove password from response data
@@ -44,10 +44,10 @@ async function register(request, response, next) {
     delete newAccount.password
 
     // Generate access token
-    const token = signToken({uid: newAccount._id, role: newAccount.role})
+    const token = signToken({ uid: newAccount._id, role: newAccount.role })
 
     response.status(201).json({
-      message: 'Succesfully registered',
+      message: 'Successfully registered',
       data: newAccount,
       token,
     })
@@ -58,3 +58,6 @@ async function register(request, response, next) {
 }
 
 module.exports = register
+
+
+
