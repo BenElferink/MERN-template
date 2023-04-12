@@ -61,6 +61,8 @@ export function AuthProvider({ children }) {
     setIsLoggedIn(false)
     setAccount(null)
     setToken(null)
+
+    window.location.reload();
   }
 
   const loginWithToken = async () => {
