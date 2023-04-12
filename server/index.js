@@ -11,9 +11,9 @@ async function bootstrap() {
   app.get('/healthz', (req, res) => res.status(200).send())
   app.use('/auth', authRoutes)
 
-  app.listen(PORT, () => {
-    console.log(`✅ Server is listening on port: ${PORT}`)
-  })
+  // app.listen(PORT, () => {
+  //   console.log(`✅ Server is listening on port: ${PORT}`)
+  // })
 }
 
 bootstrap()

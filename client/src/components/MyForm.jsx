@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import io from "socket.io-client"; // Import the socket.io-client library
+
+const socket = io("http://localhost:8080");
 
 const MyForm = ({ preferenceData }) => {
   const [name, setName] = useState("");
@@ -21,21 +24,24 @@ const MyForm = ({ preferenceData }) => {
     }
   }, [preferenceData]);
 
+
+
   //--------------------------------------------------------------------------------
   // Handle form submission
 const handleSubmit = (event) => {
   event.preventDefault();
   
+   const tipsArray = tips.split(",").map((tip) => tip.trim());
   // Create a new object with the updated form data
   const updatedPreference = {
     name: name,
     phone: phone,
-    tips: tips,
+    tips: tipsArray,
     tableNo: tableNo,
     tokenNo: tokenNo,
     items: items
   };
-
+  socket.emit("updatePreference", updatedPreference);
   // Send a post request to the server to update the preference
   axios
     .post(`http://localhost:8080/preferences/${phone}`, updatedPreference)
@@ -45,13 +51,7 @@ const handleSubmit = (event) => {
 
       console.log("Preference updated successfully:", response.data);
       
-  // Clear form fields
-  document.getElementById("name").value = "";
-  document.getElementById("phone").value = "";
-  document.getElementById("tips").value = "";
-  document.getElementById("tableNo").value = "";
-  document.getElementById("tokenNo").value = "";
-  document.getElementById("items").value = "";
+// 
     })
     .catch((error) => {
       // Handle error
@@ -62,13 +62,20 @@ const handleSubmit = (event) => {
 
   //--------------------------------------------------------------------------------
  
+  const handleClearFormFields = () => {
+    setName("");
+    setPhone("");
+    setTableNo("");
+    setTokenNo("");
+    setTips("");
+    setItems([]);
+  };
+  
 
-  // Handle change in tips input
 const handleTipsChange = (e) => {
   const value = e.target.value.split(",").map((tip) => tip.trim());
   setTips(value);
 };
-
   // Handle change in items input
   const handleItemsChange = (e) => {
     const value = e.target.value.split(",").map((item) => item.trim());
@@ -127,6 +134,8 @@ const handleTipsChange = (e) => {
         onChange={handleItemsChange}
       />
       <button type="submit">Submit</button>
+      <br/>
+      <button type="button" onClick={handleClearFormFields}></button>
     </form>
   );
 };

@@ -4,15 +4,56 @@ const {ORIGIN} = require('../constants')
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const Preference = require('../models/Preference')
+const http = require('http');
+//const socketIO = require('socket.io');
+const {PORT} = require('../constants/index')
 
 // initialize app
 const app = express()
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+//-----------------------------------------------------------------------
+
+const server = http.createServer(app); // Create HTTP server
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*',
+  }
+});
+
+// Event listener for socket connection
+io.on("connection", (socket) => {
+  console.log("Client connected:", socket.id);
+
+  // Event listener for updating preference data
+  socket.on("updatePreference", (updatedPreference) => {
+    // Update the preference data in the server
+    // ...rest of the code
+
+    // Broadcast the updated preference data to all connected clients
+    io.emit("preferenceUpdated", updatedPreference);
+  });
+
+  // Clean up socket connection on socket disconnect
+  socket.on("disconnect", () => {
+    console.log("Client disconnected:", socket.id);
+  });
+});
+
+
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+//------------------------------------------------------------------
+
 // middlewares
 app.use(cors({origin: ORIGIN}))
 app.use(express.json({extended: true})) // body parser
@@ -86,5 +127,7 @@ app.route("/preferences/:preferencePhonenumber")
         res.status(500).send("Error updating preference");
       });
   });
+
+
 
 module.exports = app
