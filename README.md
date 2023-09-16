@@ -26,7 +26,7 @@ I have attempted to use the best practices for both ends, which should make it e
 
 ### STEP 1:
 
-Click ["Use this template"](https://github.com/belferink1996/MERN-template/generate) to generate a
+Click ["Use this template"](https://github.com/benelferink/MERN-template/generate) to generate a
 new repository.<br />
 Then open your terminal and clone your repository:
 
@@ -47,7 +47,7 @@ Go to the root of your repository's folder, and install all dependecies:
 ### STEP 3:
 
 Prepare your MongoDB database ([atlas](https://www.mongodb.com/cloud/atlas),
-[community](<https://github.com/belferink1996/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS)>)).<br />
+[community](<https://github.com/benelferink/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS)>)).<br />
 Then configure your database within `server/constants/index.js`, by configuring the `MONGO_URI` variable.
 
 <br />
@@ -59,12 +59,10 @@ Then configure your database within `server/constants/index.js`, by configuring 
 
 ### To run the client and/or the server, you can do any of the following:
 
-#### Short Method
-
-From the root of your project run:
+From the `root` of your project run:
 > npm start
 
-#### Long Method
+#### OR
 
 Open terminal #1 (backend)
 > cd ./server<br />
